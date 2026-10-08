@@ -194,11 +194,22 @@ function setupYearReveals() {
 
     const revealNext = () => {
       if (shown >= photos.length) return;
-      photos[shown].classList.add("revealed");
+      const justShown = photos[shown];
+      justShown.classList.add("revealed");
       shown += 1;
+      // on tall / phone screens, ease the new photo into view so the
+      // sequential reveal actually reads as sequential
+      if (shown > 1) {
+        setTimeout(() => {
+          justShown.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 120);
+      }
       if (shown >= photos.length) {
         if (hint) hint.style.display = "none";
         if (nextBtn) nextBtn.classList.add("show");
+        setTimeout(() => {
+          if (nextBtn) nextBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 520);
       }
     };
 

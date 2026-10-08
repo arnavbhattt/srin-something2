@@ -385,10 +385,43 @@ body {
 
 /* ======================= small screens ======================= */
 @media (max-width: 560px) {
-  .blank { width: 140px; font-size: 1.6rem; }
-  .photo-inner { width: 70vw; height: 70vw; max-width: 260px; max-height: 260px; }
-  .photo-caption { max-width: 70vw; }
-  .letter { padding: 40px 26px 30px; }
+  .screen { padding: 28px 16px; }
+
+  /* password: let the two blanks sit side by side, button drops below */
+  .blanks { gap: 14px 12px; }
+  .blank { width: 38vw; max-width: 170px; font-size: 1.6rem; }
+  .amp { font-size: 2rem; }
+  /* keep the circle a circle; it naturally wraps to its own centered line */
+  .unlock { flex: 0 0 auto; width: 48px; height: 48px; margin-top: 4px; }
+  .whisper { font-size: 1.7rem; }
+
+  /* proposal */
+  .proposal-stage { min-height: 70vh; }
+  .proposal-q { margin-bottom: 40px; }
+  .yes-btn { font-size: 1.15rem; padding: 13px 34px; }
+
+  /* letter */
+  .letter { padding: 40px 24px 30px; }
+  .letter-body { font-size: 1.05rem; }
+
+  /* years: one photo per row, a touch bigger for phones */
+  .screen-year.active { padding-top: 48px; }
+  .year-stage { gap: 24px 20px; }
+  .photo-inner { width: 72vw; height: 72vw; max-width: 300px; max-height: 300px; }
+  .photo-caption { max-width: 72vw; font-size: 1.4rem; }
+  .year-title { font-size: 2.9rem; }
+  .tap-hint { font-size: 1.25rem; padding: 0 20px; }
+
+  /* end */
+  .end-message { font-size: 1.7rem; }
+
+  .music-toggle { width: 38px; height: 38px; top: 12px; right: 12px; }
+}
+
+/* very small / older phones */
+@media (max-width: 360px) {
+  .proposal-q { font-size: 2.1rem; }
+  .blank { font-size: 1.4rem; }
 }
 
 /* be kind to folks who dislike motion */
