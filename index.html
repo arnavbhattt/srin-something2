@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>for srin ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- the little song. drop your file in assets/ and it'll just work -->
+  <audio id="song" loop preload="auto">
+    <source src="assets/we-fell-in-love-in-october.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- tiny music toggle, hidden until the song starts -->
+  <button id="music-toggle" class="music-toggle" hidden aria-label="toggle music">♪</button>
+
+  <main id="app">
+
+    <!-- ========== 1. password ========== -->
+    <section class="screen active" id="screen-password">
+      <div class="password-wrap">
+        <p class="whisper">before i let you in…</p>
+        <p class="riddle">a little riddle. you already know the answer.</p>
+        <form id="password-form" class="blanks" autocomplete="off">
+          <input type="text" id="blank-1" class="blank" aria-label="first word" spellcheck="false" />
+          <span class="amp">&amp;</span>
+          <input type="text" id="blank-2" class="blank" aria-label="second word" spellcheck="false" />
+          <button type="submit" class="unlock" aria-label="unlock">→</button>
+        </form>
+        <p class="error" id="password-error" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ========== 2. the proposal ========== -->
+    <section class="screen screen-pink" id="screen-proposal">
+      <div class="hearts" id="hearts" aria-hidden="true"></div>
+      <div class="proposal-stage" id="proposal-stage">
+        <h1 class="proposal-q">Will you be my<br />4-year anniversaritine?</h1>
+        <button class="yes-btn" id="yes-btn">Yes!</button>
+      </div>
+    </section>
+
+    <!-- ========== 3. the letter ========== -->
+    <section class="screen" id="screen-message">
+      <div class="letter">
+        <p class="letter-body">
+          Dear Srin,
+          <br /><br />
+          I'm surprise you were able to answer the riddle I put together for you,
+          but it seems like you have passed the test of our love. With that being
+          said, I made this website in celebration of our 4-year anniversary
+          (as you can tell haha!). I wanted to take us on a little journey of our
+          relationship, highlighting some moments that I have held very close to me
+          (and I hope you have too). Crying is permitted btw &ndash;&ndash; enjoy &#10084;&#65039;
+          <br /><br />
+          <span class="sign-off">&ndash; Arnav</span>
+        </p>
+        <button class="next-btn" data-next="screen-year-0">next</button>
+      </div>
+    </section>
+
+    <!-- year screens get built here by script.js -->
+    <div id="years"></div>
+
+    <!-- ========== end ========== -->
+    <section class="screen" id="screen-end">
+      <div class="hearts" id="hearts-end" aria-hidden="true"></div>
+      <div class="end-wrap">
+        <p class="end-message">
+          To many more years with my Srin. I can't wait for all the exciting
+          memories we're gonna make together, and I've even more excited to spend
+          the rest of my life loving you.
+        </p>
+        <button class="restart-btn" id="restart-btn">start over &#8630;</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
