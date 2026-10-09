@@ -14,9 +14,9 @@ const YEARS = [
     kicker: "where it all started",
     title: "Year One",
     photos: [
-      { src: "", caption: "add a caption later ♡" },
-      { src: "", caption: "add a caption later ♡" },
-      { src: "", caption: "add a caption later ♡" },
+      { src: "assets/year1-ice-skating.jpg", caption: "One of our first pics together. Wow we were so awkward... remember what we did in the parking lot before ice skating 😉?!" },
+      { src: "assets/year1-target.jpg", caption: "Aww target dressing room. You looked extremely cute this day (especially your little strands)" },
+      { src: "assets/year1-central-park.jpg", caption: "one of my first times in Central Park! This was truly magical to experience w/ you. We look rly different holyyyy" },
     ],
   },
   {
