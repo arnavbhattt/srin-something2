@@ -23,9 +23,9 @@ const YEARS = [
     kicker: "growing together",
     title: "Year Two",
     photos: [
-      { src: "", caption: "add a caption later ♡" },
-      { src: "", caption: "add a caption later ♡" },
-      { src: "", caption: "add a caption later ♡" },
+      { src: "assets/year2-waverly.jpg", caption: "our hangout on top of waverly parking deck before we said goodbye 😞 This was one of my favorite moments with you" },
+      { src: "assets/year2-ny-trip.jpg", caption: "NY TRIP AGAIN!! I remember we set up your cam and tried to get the perfect picture haha" },
+      { src: "assets/year2-nye-kiss.jpg", caption: "nye kiss 😏The live on this was truly cinematic. Can't wait to kiss you again" },
     ],
   },
   {
