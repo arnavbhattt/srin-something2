@@ -1,14 +1,3 @@
-/* ------------------------------------------------------------------
-   for srin ♡  — all the little interactions live here
-
-   ADDING PHOTOS LATER:
-   each year below has a `photos` array. to drop in a real picture,
-   put the file in assets/ and set its `src`, e.g.
-       { src: "assets/beach-day.jpg", caption: "our first trip" }
-   leave src as "" and you'll just see a labelled box (great for testing).
-   add or remove entries freely — 2 or 3 per year feels about right.
------------------------------------------------------------------- */
-
 const YEARS = [
   {
     kicker: "where it all started",
@@ -48,11 +37,9 @@ const YEARS = [
   },
 ];
 
-// the two words we're looking for (any casing)
 const ANSWER_1 = "behemoth";
 const ANSWER_2 = "behemini";
 
-/* ---------------- screen helpers ---------------- */
 function showScreen(id) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
   const el = document.getElementById(id);
@@ -62,7 +49,6 @@ function showScreen(id) {
   }
 }
 
-/* ---------------- 1. password ---------------- */
 const pwForm = document.getElementById("password-form");
 const blank1 = document.getElementById("blank-1");
 const blank2 = document.getElementById("blank-2");
@@ -79,19 +65,17 @@ pwForm.addEventListener("submit", (e) => {
     pwError.textContent = pickGentleNudge(a, b);
     pwError.classList.add("show");
     pwForm.classList.remove("shake");
-    void pwForm.offsetWidth; // restart the animation
+    void pwForm.offsetWidth;
     pwForm.classList.add("shake");
   }
 });
 
 function pickGentleNudge(a, b) {
   if (!a && !b) return "fill in both, my love";
-  // right words, wrong order? give a wink.
   if (a === ANSWER_2 && b === ANSWER_1) return "so close… try swapping them";
   return "not quite… think about us";
 }
 
-/* ---------------- 2. proposal ---------------- */
 const proposalStage = document.getElementById("proposal-stage");
 const yesBtn = document.getElementById("yes-btn");
 let yesClicks = 0;
@@ -119,7 +103,6 @@ function moveYesButton() {
   yesBtn.style.top = y + "px";
 }
 
-/* floating hearts — sprinkle a handful into any .hearts container */
 function spawnHearts(container, count) {
   const glyphs = ["♥", "❤", "💕", "🤍"];
   for (let i = 0; i < count; i++) {
@@ -136,7 +119,6 @@ function spawnHearts(container, count) {
 spawnHearts(document.getElementById("hearts"), 18);
 spawnHearts(document.getElementById("hearts-end"), 18);
 
-/* ---------------- year pages (built from YEARS) ---------------- */
 const yearsRoot = document.getElementById("years");
 
 YEARS.forEach((year, index) => {
@@ -147,7 +129,7 @@ YEARS.forEach((year, index) => {
   const isLast = index === YEARS.length - 1;
   const nextTarget = isLast ? "screen-end" : "screen-year-" + (index + 1);
 
-  const tilts = [-3, 2, -1.5, 3, -2]; // gentle, uneven — not machine-straight
+  const tilts = [-3, 2, -1.5, 3, -2];
 
   section.innerHTML = `
     <div class="year-header">
@@ -184,7 +166,6 @@ function escapeHtml(str) {
   );
 }
 
-/* reveal photos one tap at a time, per year screen */
 function setupYearReveals() {
   document.querySelectorAll('[id^="screen-year-"]').forEach((section) => {
     const photos = Array.from(section.querySelectorAll(".photo"));
@@ -197,8 +178,6 @@ function setupYearReveals() {
       const justShown = photos[shown];
       justShown.classList.add("revealed");
       shown += 1;
-      // on tall / phone screens, ease the new photo into view so the
-      // sequential reveal actually reads as sequential
       if (shown > 1) {
         setTimeout(() => {
           justShown.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -213,7 +192,6 @@ function setupYearReveals() {
       }
     };
 
-    // clicking the stage area reveals; but not clicks on the next button
     section.addEventListener("click", (e) => {
       if (e.target.closest(".year-next")) return;
       revealNext();
@@ -229,7 +207,6 @@ function setupYearReveals() {
 }
 setupYearReveals();
 
-/* ---------------- music ---------------- */
 const song = document.getElementById("song");
 const musicToggle = document.getElementById("music-toggle");
 let musicStarted = false;
@@ -239,7 +216,7 @@ function startMusic() {
   musicStarted = true;
   musicToggle.hidden = false;
   const p = song.play();
-  if (p && p.catch) p.catch(() => {/* browser blocked it; toggle is there */});
+  if (p && p.catch) p.catch(() => {});
 }
 
 musicToggle.addEventListener("click", () => {
@@ -252,8 +229,6 @@ musicToggle.addEventListener("click", () => {
   }
 });
 
-/* ---------------- next / navigation buttons ---------------- */
-// any button with data-next advances; entering the first year starts the song
 document.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-next]");
   if (!btn) return;
@@ -262,9 +237,7 @@ document.addEventListener("click", (e) => {
   showScreen(target);
 });
 
-/* ---------------- restart ---------------- */
 document.getElementById("restart-btn").addEventListener("click", () => {
-  // reset everything back to the start
   blank1.value = "";
   blank2.value = "";
   pwError.textContent = "";

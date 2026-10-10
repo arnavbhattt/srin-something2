@@ -1,8 +1,3 @@
-/* ------------------------------------------------------------------
-   for srin — little anniversary site
-   kept intentionally simple & warm. tweak colors/spacing freely.
------------------------------------------------------------------- */
-
 :root {
   --cream: #faf4ea;
   --cream-deep: #f3e9d8;
@@ -24,7 +19,6 @@ body {
   font-family: 'Lora', Georgia, serif;
   color: var(--ink);
   background: var(--cream);
-  /* a faint paper-ish wash so it isn't a flat white screen */
   background-image:
     radial-gradient(circle at 20% 15%, rgba(255, 213, 227, 0.35), transparent 42%),
     radial-gradient(circle at 85% 80%, rgba(255, 234, 200, 0.4), transparent 45%);
@@ -34,7 +28,6 @@ body {
 
 #app { min-height: 100vh; }
 
-/* ---- screen switching ---- */
 .screen {
   display: none;
   min-height: 100vh;
@@ -52,7 +45,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ======================= 1. password ======================= */
 .password-wrap {
   max-width: 640px;
   text-align: center;
@@ -127,7 +119,6 @@ body {
   75% { transform: translateX(7px); }
 }
 
-/* ======================= 2. proposal ======================= */
 .screen-pink {
   background: linear-gradient(160deg, var(--pink-wash), var(--pink-wash-2));
 }
@@ -168,7 +159,6 @@ body {
 .yes-btn:hover { background: var(--pink-deep); }
 .yes-btn.loose { position: absolute; }
 
-/* floating hearts */
 .hearts {
   position: absolute;
   inset: 0;
@@ -191,7 +181,6 @@ body {
   100% { transform: translateY(-104vh) rotate(26deg); opacity: 0; }
 }
 
-/* ======================= 3. letter ======================= */
 .letter {
   max-width: 620px;
   background: #fffdf8;
@@ -201,7 +190,6 @@ body {
   transform: rotate(-0.6deg);
   position: relative;
 }
-/* a bit of "tape" at the top so it reads like a pinned note */
 .letter::before {
   content: "";
   position: absolute;
@@ -225,8 +213,6 @@ body {
   color: var(--ink);
 }
 
-/* ======================= year pages ======================= */
-/* top-aligned column so the header never gets clipped on tall content */
 .screen-year.active {
   flex-direction: column;
   align-items: center;
@@ -251,8 +237,6 @@ body {
   color: var(--ink);
   margin: 0;
 }
-/* two photos share the top row (one left, one right); a third wraps to
-   sit centered beneath them — a loose little triangle */
 .year-stage {
   display: flex;
   flex-wrap: wrap;
@@ -263,9 +247,8 @@ body {
   padding: 24px 0 8px;
 }
 
-/* a photo = taped polaroid. right now it's just a box. */
 .photo {
-  margin: 0; /* figures carry a default 40px side margin — drop it */
+  margin: 0;
   opacity: 0;
   transform: translateY(26px) scale(0.96);
   transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.34,1.3,.64,1);
@@ -330,7 +313,6 @@ body {
   50%      { opacity: 1; }
 }
 
-/* ======================= buttons / end ======================= */
 .next-btn, .restart-btn {
   font-family: 'Lora', serif;
   font-weight: 600;
@@ -367,7 +349,6 @@ body {
   margin: 0 0 40px;
 }
 
-/* ======================= music toggle ======================= */
 .music-toggle {
   position: fixed;
   top: 16px;
@@ -386,28 +367,22 @@ body {
 }
 .music-toggle.muted { opacity: 0.5; }
 
-/* ======================= small screens ======================= */
 @media (max-width: 560px) {
   .screen { padding: 28px 16px; }
 
-  /* password: let the two blanks sit side by side, button drops below */
   .blanks { gap: 14px 12px; }
   .blank { width: 38vw; max-width: 170px; font-size: 1.6rem; }
   .amp { font-size: 2rem; }
-  /* keep the circle a circle; it naturally wraps to its own centered line */
   .unlock { flex: 0 0 auto; width: 48px; height: 48px; margin-top: 4px; }
   .whisper { font-size: 1.7rem; }
 
-  /* proposal */
   .proposal-stage { min-height: 70vh; }
   .proposal-q { margin-bottom: 40px; }
   .yes-btn { font-size: 1.15rem; padding: 13px 34px; }
 
-  /* letter */
   .letter { padding: 40px 24px 30px; }
   .letter-body { font-size: 1.05rem; }
 
-  /* years: one photo per row, a touch bigger for phones */
   .screen-year.active { padding-top: 48px; }
   .year-stage { gap: 24px 20px; }
   .photo-inner { width: 72vw; height: 72vw; max-width: 300px; max-height: 300px; }
@@ -415,19 +390,16 @@ body {
   .year-title { font-size: 2.9rem; }
   .tap-hint { font-size: 1.25rem; padding: 0 20px; }
 
-  /* end */
   .end-message { font-size: 1.7rem; }
 
   .music-toggle { width: 38px; height: 38px; top: 12px; right: 12px; }
 }
 
-/* very small / older phones */
 @media (max-width: 360px) {
   .proposal-q { font-size: 2.1rem; }
   .blank { font-size: 1.4rem; }
 }
 
-/* be kind to folks who dislike motion */
 @media (prefers-reduced-motion: reduce) {
   .photo-frame { animation: none; }
   .heart { animation-duration: 10s; }
