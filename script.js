@@ -30,7 +30,7 @@ const YEARS = [
   },
   {
     kicker: "deeper still",
-    title: "Year Three",
+    title: "more arbsrin",
     photos: [
       { src: "assets/year3-cat-cafe.jpg", caption: "cat cafe together! I think all the cats were running away from us while we holding the little fishing toy 🤣 Woah look at ur red hair 😍" },
       { src: "assets/year3-raleigh.jpg", caption: "one of your raleigh trips 😺we always did the most random stuff when you came, but I loved having u experience my life at school" },
