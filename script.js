@@ -41,9 +41,9 @@ const YEARS = [
     kicker: "and here we are",
     title: "Year Four",
     photos: [
-      { src: "", caption: "add a caption later ♡" },
-      { src: "", caption: "add a caption later ♡" },
-      { src: "", caption: "add a caption later ♡" },
+      { src: "assets/year4-ktown-photobooth.jpg", caption: "ktown photobooth! I guess this foreshadowed the cat ears I'm gonna wear this halloween 😈" },
+      { src: "assets/year4-seattle.jpg", caption: "seattle trip with my love ❤️ lowk one of the last pics before yk what..." },
+      { src: "assets/year4-reunited.jpg", caption: "REUNITED!! I was so happy to have my girl back -- probably the happiest I've been in my life" },
     ],
   },
 ];
